@@ -1,12 +1,12 @@
 <template>
-  <div class="about" v-title data-title="关于">
-    <h1>This is an about page</h1>
-  </div>
+    <div v-title data-title="注册">
+        <h1>This is an Rigister page</h1>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: 'Rigister',
   props: {
     msg: String
   }
