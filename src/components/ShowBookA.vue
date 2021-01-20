@@ -2,7 +2,7 @@
   <div class="book-container">
     <div class="book-waper">
       <el-card class="box-card" v-for="book in bookList" :key="book.id">
-        <el-image :lazy="true" :src="book.bookCover" :fit="fit" class="bookcover" @click="details(book.id)">
+        <el-image :src="book.bookCover" :fit="fit" class="bookcover" @click="details(book.id)">
       </el-image>
       <p class="bookname">{{book.bookName}}</p>
       </el-card>
@@ -16,9 +16,9 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'ShowBook',
+  name: 'ShowBookA',
   props: {
-    msg: String
+    cid: Number
   },
   data () {
       return {
@@ -30,21 +30,21 @@ export default {
   },
     methods: {
       loadNextPage (page) {
-      axios.get(this.$SERVER_ADDRESS+'/book/?page='+page+1).then(
+      axios.get(this.$SERVER_ADDRESS+'/book/category/'+this._props.cid+'?page='+page+1).then(
         response => (
           this.bookList = response.data.list
         )
       )    
       },
       loadPrvePage (page) {
-      axios.get(this.$SERVER_ADDRESS+'/book/?page='+page-1).then(
+      axios.get(this.$SERVER_ADDRESS+'/book/category/'+this._props.cid+'?page='+page-1).then(
         response => (
           this.bookList = response.data.list
         )
       )       
       },
       currentPage(page){
-      axios.get(this.$SERVER_ADDRESS+'/book/?page='+page).then(
+      axios.get(this.$SERVER_ADDRESS+'/book/category/'+this._props.cid+'?page='+page).then(
         response => (
           this.bookList = response.data.list
         )
@@ -55,7 +55,7 @@ export default {
       }
     },
     created(){
-      axios.get(this.$SERVER_ADDRESS+'/book/').then(
+      axios.get(this.$SERVER_ADDRESS+'/book/category/'+this._props.cid).then(
         response => (
           this.bookList = response.data.list
         )
@@ -68,8 +68,7 @@ export default {
 .book-container{
   width: 1200px;
   height: 1050px;
-  margin: 20px auto;
-
+  margin: auto;
 }
 .book-waper{
   width: 1200px;
@@ -77,7 +76,8 @@ export default {
   overflow-y: auto;
 }
 .box-card {
-  width: 378px;
+  /*width: 378px;*/
+  width: 300px;
   height: 298px;
   float: left;
   margin: 20px 10px auto 10px;

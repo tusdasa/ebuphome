@@ -8,14 +8,14 @@
           <router-link to="/category">分类</router-link>
         </li>
         <li>
-          <router-link to="/about">最热</router-link>
+         <router-link to="/search">搜索</router-link>
         </li>
         <li>
         </li>
         <li id="users">
-          <router-link to="/login">登录</router-link>
+          <router-link to="/userCenter">提交</router-link>
           <span style="padding-left: 5px;padding-right: 5px;">|</span>
-          <router-link to="/rigister">注册</router-link>
+          <router-link to="/about">关于</router-link>
         </li>
       </ul>
     </div>
@@ -23,10 +23,7 @@
 
 <script>
 export default {
-  name: 'Nav',
-  props: {
-    msg: String
-  }
+  name: 'Nav'
 }
 </script>
 

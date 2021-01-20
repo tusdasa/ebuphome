@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import settings from '@/settings'
 
 Vue.config.productionTip = false
 
@@ -16,12 +17,11 @@ Vue.directive('title', {
 })
 
 // 站点标题
-Vue.prototype.$SITENAME = 'EPUB 之家'
-// 后端地址 注意格式http://域名地址
-Vue.prototype.$SERVER_ADDRESS = 'http://127.0.0.1'
-//域名
-Vue.prototype.$DOMAIN = 'http://www.tusdasa.net'
+Vue.prototype.$SITENAME = settings.title
 
+Vue.prototype.$SERVER_ADDRESS = settings.server
+//域名
+Vue.prototype.$DOMAIN = settings.domain
 
 new Vue({
   router,

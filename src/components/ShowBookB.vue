@@ -2,7 +2,7 @@
   <div class="book-container">
     <div class="book-waper">
       <el-card class="box-card" v-for="book in bookList" :key="book.id">
-        <el-image :lazy="true" :src="book.bookCover" :fit="fit" class="bookcover" @click="details(book.id)">
+        <el-image :src="book.bookCover" :fit="fit" class="bookcover" @click="details(book.id)">
       </el-image>
       <p class="bookname">{{book.bookName}}</p>
       </el-card>
@@ -16,35 +16,35 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'ShowBook',
+  name: 'ShowBookB',
   props: {
-    msg: String
+    cid: Number,
+    bookName: String
   },
   data () {
       return {
         fit: 'fill',
         bookList: [],
-        loading: false,
         page:0
       }
   },
     methods: {
       loadNextPage (page) {
-      axios.get(this.$SERVER_ADDRESS+'/book/?page='+page+1).then(
+      axios.get(this.$SERVER_ADDRESS+'/book/search/'+this._props.cid+'?name='+this._props.bookName+'&page='+page+1).then(
         response => (
           this.bookList = response.data.list
         )
       )    
       },
       loadPrvePage (page) {
-      axios.get(this.$SERVER_ADDRESS+'/book/?page='+page-1).then(
+      axios.get(this.$SERVER_ADDRESS+'/book/search/'+this._props.cid+'?name='+this._props.bookName+'&page='+page-1).then(
         response => (
           this.bookList = response.data.list
         )
       )       
       },
       currentPage(page){
-      axios.get(this.$SERVER_ADDRESS+'/book/?page='+page).then(
+      axios.get(this.$SERVER_ADDRESS+'/book/search/'+this._props.cid+'?name='+this._props.bookName+'&page='+page).then(
         response => (
           this.bookList = response.data.list
         )
@@ -55,11 +55,11 @@ export default {
       }
     },
     created(){
-      axios.get(this.$SERVER_ADDRESS+'/book/').then(
+      axios.get(this.$SERVER_ADDRESS+'/book/search/'+this._props.cid+'?name='+this._props.bookName+'&page='+0).then(
         response => (
           this.bookList = response.data.list
         )
-      )
+      )      
     }
 }
 </script>
@@ -68,8 +68,7 @@ export default {
 .book-container{
   width: 1200px;
   height: 1050px;
-  margin: 20px auto;
-
+  margin: auto;
 }
 .book-waper{
   width: 1200px;

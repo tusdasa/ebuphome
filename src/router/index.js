@@ -39,6 +39,11 @@ const routes = [
     path: '/userCenter',
     name: 'UserCenter',
     component: () => import('../views/UserCenter.vue')
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('../views/Search.vue')
   }
 ]
 

@@ -1,8 +1,7 @@
 <template>
   <el-carousel indicator-position="outside" class="swiper">
-    <el-carousel-item v-for="item in 4" :key="item">
-      <p>如果我们选择了最能为人类而工作的职业，那么，重担就不能把我们压倒，因为这是为大家做出的牺牲;</p>
-      <p>那时我们所享受的就是不是可怜的、有限的、自私的的乐趣，我们的幸福将属于千百万人。</p>
+    <el-carousel-item v-for="url in urls" :key="url">
+      <el-image  :key="url" :src="url" ></el-image>
     </el-carousel-item>
   </el-carousel>
 </template>
@@ -12,6 +11,11 @@ export default {
   name: 'Swiper',
   props: {
     msg: String
+  },
+  data () {
+      return {
+        urls:["41765-106.jpg"]
+      }
   }
 }
 </script>
