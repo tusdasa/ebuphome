@@ -5,10 +5,10 @@
     </div>
     <div class="ba">
         <span>
-            © 2021
+            © {{year}}
         </span>
         <a :href="domain">{{siteName}}</a>.
-        <a href="https://beian.miit.gov.cn/">陕ICP备14012662-2</a>.
+        <a href="https://beian.miit.gov.cn/">{{ icp }}</a>.
     </div>
 </div>
 </template>
@@ -19,15 +19,16 @@ export default {
   data () {
       return {
           siteName:'',
-          domain:''
+          domain:'',
+          icp:'',
+          year:''
       }
-  },
-  props: {
-    msg: String
   },
   created() {
       this.siteName = this.$SITENAME
       this.domain = this.$DOMAIN
+      this.icp = this.$ICP
+      this.year = this.$YEAR
   }
 }
 </script>

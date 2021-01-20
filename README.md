@@ -1,24 +1,27 @@
-# epub_home_web
+# Epub home
 
-## Project setup
+## 安装项目依赖
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+## 依赖组件
+
+- axios
+- element-ui
+- vue 
+- vue-router
+- vuex
+
+## 开发模式
+
 ```
 yarn serve
 ```
-
-### Compiles and minifies for production
+## 生产打包
 ```
 yarn build
 ```
+## 文档
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[请阅读Wiki](https://github.com/tusdasa/ebuphome/wiki)

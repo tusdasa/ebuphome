@@ -22,6 +22,10 @@ Vue.prototype.$SITENAME = settings.title
 Vue.prototype.$SERVER_ADDRESS = settings.server
 //域名
 Vue.prototype.$DOMAIN = settings.domain
+// icp备案号
+Vue.prototype.$ICP = settings.icp
+// 年
+Vue.prototype.$YEAR = settings.year
 
 new Vue({
   router,
